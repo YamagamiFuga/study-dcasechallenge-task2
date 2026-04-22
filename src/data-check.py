@@ -46,7 +46,7 @@ S_db = librosa.power_to_db(np.abs(D)**2, ref=np.max)
 # sr=sr でサンプリングレートを指定（時間軸のスケールを正しく設定）
 # x_axis='time' で横軸を時間、y_axis='hz' で縦軸を周波数に設定
 img1 = librosa.display.specshow(S_db, sr=sr, x_axis='time', y_axis='hz', ax=axes[0])
-axes[0].set_title('スペクトログラム')
+axes[0].set_title('spectrogram ')
 # カラーバーを追加して、dB値の範囲を表示
 fig.colorbar(img1, ax=axes[0], format='%+2.0f dB')
 
@@ -67,7 +67,7 @@ S_db_mel = librosa.power_to_db(S, ref=np.max)
 # メルスペクトログラムを画像として表示
 # y_axis='mel' で縦軸をメル周波数に設定（線形周波数ではない）
 img2 = librosa.display.specshow(S_db_mel, sr=sr, x_axis='time', y_axis='mel', ax=axes[1])
-axes[1].set_title('メルスペクトログラム')
+axes[1].set_title('mel spectrogram')
 # カラーバーを追加
 fig.colorbar(img2, ax=axes[1], format='%+2.0f dB')
 
@@ -85,7 +85,7 @@ S_mel_log = np.log(S_mel + 1e-9)
 # 対数メルエネルギーを画像として表示
 # dB変換ではなく自然対数なので、colorbar時の単位が異なる
 img3 = librosa.display.specshow(S_mel_log, sr=sr, x_axis='time', y_axis='mel', ax=axes[2])
-axes[2].set_title('対数メルエネルギー')
+axes[2].set_title('log mel energy')
 # カラーバーを追加（dB形式ではなく対数値）
 fig.colorbar(img3, ax=axes[2])
 
